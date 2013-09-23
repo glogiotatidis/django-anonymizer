@@ -223,6 +223,8 @@ class Anonymizer(object):
     # values are done first.
     order = 0
 
+    queryset = None
+
     faker = DjangoFaker()
 
     def get_query_set(self):
@@ -231,7 +233,9 @@ class Anonymizer(object):
         """
         if self.model is None:
             raise Exception("'model' attribute must be set")
-        qs = self.model._default_manager.get_query_set()
+
+        qs = self.queryset or self.model._default_manager.get_query_set()
+
         if len([f for f in self.model._meta.fields if f.name == 'id']) == 1:
             qs = qs.order_by('id')
         return qs
