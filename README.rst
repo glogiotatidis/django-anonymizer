@@ -2,6 +2,13 @@
  Django Anonymizer
 ===================
 
+Note
+====
+
+This is my fork of https://bitbucket.org/spookylukey/django-anonymizer
+
+--
+
 Downloads: http://pypi.python.org/pypi/django-anonymizer
 
 Intro
